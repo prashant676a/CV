@@ -1,0 +1,32 @@
+name: Build LaTeX Resume
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "resume.tex"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+
+      - name: Commit compiled PDF
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add resume.pdf
+          git diff --staged --quiet || git commit -m "Build: compile resume.pdf from latest source"
+          git push

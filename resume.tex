@@ -1,0 +1,177 @@
+%-------------------------
+% Resume in Latex — Prashant Bhandari (Updated)
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{fontawesome}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\raggedright
+\setlength{\tabcolsep}{0in}
+\pdfgentounicode=1
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\titlerule \vspace{-5pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small #3} & \textit{\small #4} \\
+    \end{tabular*}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} \\
+      \textit{\small #2} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+%-------------------------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Prashant Bhandari} \\ \vspace{6pt}
+    \small
+    +977 9861678246 $|$
+    \href{mailto:prashantbhandari.374@gmail.com}{prashantbhandari.374@gmail.com} $|$
+    \href{https://www.linkedin.com/in/prashant-bhandari-334532209/}{\faLinkedinSquare\ linkedin.com/in/prashant-bhandari} $|$
+    \href{https://github.com/prashant676a}{\faGithub\ github.com/prashant676a}
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Summary}
+\small{
+Software Engineer with nearly 2 years of experience building and maintaining production Ruby on Rails applications. Architected modular monolith systems with Rails engines, implemented multi-tenant architecture with row-level isolation, and led multiple major Rails upgrades. Experienced in backend API design, modern frontend integration with Hotwire and React, containerized deployments with Docker and Kamal, and Nepal-specific domain engineering including Bikram Sambat fiscal year logic.
+}
+
+%-----------WORK EXPERIENCE-----------
+\section{Work Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+  {Danphe Software Labs}{Kathmandu, Nepal}
+  {Associate Software Engineer}{Apr 2024 -- Present}
+  \resumeItemListStart
+    \resumeItem{Architected a \textbf{modular monolith} ERP system using multiple Rails engines for clean domain separation across HR, finance, and project management modules.}
+    \resumeItem{Implemented \textbf{multi-tenant architecture} with acts\_as\_tenant, enabling row-level data isolation across companies with shared authentication and cross-company partnership support.}
+    \resumeItem{Built \textbf{JWT-based API authentication} with token refresh flow and \textbf{Pundit authorization policies} with role-based auth scopes for fine-grained access control.}
+    \resumeItem{Led multiple \textbf{Rails upgrades} (6 $\rightarrow$ 7 $\rightarrow$ 7.1+) on a client-facing survey platform, handling dependency updates, configuration changes, and deprecation fixes.}
+    \resumeItem{Modernized frontend architecture by migrating from jQuery and Rails UJS to \textbf{Hotwire} (Turbo Streams, Stimulus) and \textbf{React 18} with Zustand and TanStack Query.}
+    \resumeItem{Migrated legacy asset pipelines from Webpacker and Sprockets to \textbf{ESBuild and Vite}, improving build performance and developer experience.}
+    \resumeItem{Integreted \textbf{Nepali Bikram Sambat calendar} and fiscal year logic for Nepal-specific tax compliance (SSF, CIT, TDS) in the finance module.}
+    \resumeItem{Built \textbf{PDF generation} services for invoices, payslips, and contracts using Prawn and Wicked PDF, and developed bulk CSV/XLSX import/export pipelines.}
+    \resumeItem{Integrated \textbf{AWS Cognito SSO} for a client-facing survey platform and implemented Single Table Inheritance Patterns.}
+    \resumeItem{Containerized applications using \textbf{Docker} and deployed to AWS EC2 via \textbf{Kamal}, with CI/CD pipelines on GitHub Actions running RSpec test suites and Brakeman security scans.}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading
+  {SmartOffice ERP \normalfont{--- Multi-tenant ERP for software consultancies}}
+  {Ruby on Rails 8.0, PostgreSQL, Erb, React, Hotwire, Pundit, Devise + JWT, Docker, Kamal, Solid Queue}
+  \resumeItemListStart
+    \resumeItem{Built a comprehensive ERP covering HR management, financial operations (invoicing, payroll, tax compliance), and project tracking with billable resource management.}
+    \resumeItem{Designed Rails engines as a modular monolith with multi-tenant row-level isolation, and cross-company partnership features for outsourcing relationships.}
+    \resumeItem{Implemented API layer with JWT authentication, Pundit policies, and versioned endpoints for invoices, payroll, clients, and purchase bills.}
+  \resumeItemListEnd
+
+\resumeProjectHeading
+  {MindGym Diagnostics \normalfont{--- Employee survey and engagement analytics platform}}
+  {Ruby on Rails 7.0, PostgreSQL, Stimulus.js, Slim, Vite, AWS Cognito, Postmark, Twilio, Docker}
+  \resumeItemListStart
+    \resumeItem{Contributed to a survey platform supporting one-time assessments, drip campaigns, and multi-language surveys at scale.}
+    \resumeItem{Led Rails upgrade and frontend modernization (jQuery $\rightarrow$ Hotwire, Webpacker $\rightarrow$ Vite), stabilized RSpec test suites and CI pipeline with 39 test suites.}
+    \resumeItem{Worked on event-based message scheduling system for automated email/SMS delivery via Postmark and Twilio.}
+  \resumeItemListEnd
+
+\resumeProjectHeading
+  {Maithili News Classification \normalfont{--- Academic}}
+  {PyTorch, HuggingFace Transformers, React, Netlify}
+  \resumeItemListStart
+    \resumeItem{Fine-tuned a custom MaiBERT model on a Maithili-language news dataset, outperforming pre-existing models on classification accuracy.}
+    \resumeItem{Built and deployed a React frontend on Netlify to showcase real-time news classification results.}
+  \resumeItemListEnd
+
+\resumeProjectHeading
+  {Agricultural Marketplace \normalfont{--- Academic}}
+  {React, Django, Django REST Framework, PostgreSQL}
+  \resumeItemListStart
+    \resumeItem{Built a full-stack e-commerce platform with RESTful APIs for user, product, order, and authentication management.}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \item \textbf{Languages:} Ruby, JavaScript, SQL, Python
+  \item \textbf{Frameworks:} Ruby on Rails, React, Hotwire (Turbo Streams, Stimulus), Django
+  \item \textbf{Backend:} RESTful APIs, Devise, JWT, Pundit, RSpec, Solid Queue, Sidekiq
+  \item \textbf{Databases:} PostgreSQL, MySQL, Redis, SQLite
+  \item \textbf{Frontend:} Tailwind CSS, ESBuild, Vite, Zustand, TanStack Query
+  \item \textbf{DevOps \& Tools:} Docker, Kamal, GitHub Actions, Git, Linux, AWS (EC2, S3, Cognito)
+\end{itemize}
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+  {IOE Pulchowk Campus}{Lalitpur, Nepal}
+  {Bachelor in Computer Engineering}{Nov 2019 -- Apr 2024}
+\resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \item Supervised Machine Learning: Regression and Classification --- Coursera (DeepLearning.AI)
+  \item Advanced Learning Algorithms --- Coursera (DeepLearning.AI)
+  \item Neural Networks and Deep Learning --- Coursera (DeepLearning.AI)
+  \item Version Control --- Coursera (Meta)
+  \item Programming in JavaScript --- Coursera (Meta)
+\end{itemize}
+
+%-----------TRAININGS-----------
+\section{Trainings}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \item Coding and Programming with Python --- Samsung Innovation Campus
+  \item Applied Data Science --- Samsung Innovation Campus
+  \item Security Operations Fundamentals --- Logpoint
+\end{itemize}
+
+\end{document}
